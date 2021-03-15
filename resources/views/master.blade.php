@@ -13,6 +13,7 @@
 <body>
     {{ View::make('header') }}
         @yield('content')
+        <h3>Hello world!!!</h3>
     {{ View::make('footer') }}
 </body>
 <style>
