@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\ProductController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Middleware\CheckLoginMiddleware;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,6 +16,5 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('login');
-});
+Route::match(['get', 'post'], '/login', [UserController::class, 'login'])->name('login');
+Route::get('/',[ProductController::class, 'index'])->name('product');
