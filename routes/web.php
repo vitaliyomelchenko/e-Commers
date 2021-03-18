@@ -18,4 +18,4 @@ use App\Http\Middleware\CheckLoginMiddleware;
 
 Route::match(['get', 'post'], '/login', [UserController::class, 'login'])->name('login');
 Route::get('/',[ProductController::class, 'index'])->name('product');
-
+Route::get('/detail/{id}', [ProductController::class, 'detail'])->name('detail');

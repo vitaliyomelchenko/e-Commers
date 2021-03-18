@@ -26,6 +26,19 @@
     .custom-product{
         height: 630px;
     }
+    .trading-wrapper{
+        margin: 10px;
+    }
+    .trending-image{
+        height: 100px;
+    }
+    .treding-item{
+        float: left;
+        width: 25%;
+    }
+    .detail-img{
+        height: 400px;
+    }
 }
 </style>
 </html>
