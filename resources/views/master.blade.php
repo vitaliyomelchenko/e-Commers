@@ -27,17 +27,26 @@
         height: 630px;
     }
     .trading-wrapper{
-        margin: 10px;
+        margin: 50px;
     }
     .trending-image{
         height: 100px;
     }
     .treding-item{
         float: left;
-        width: 25%;
+        width: 20%;
     }
     .detail-img{
         height: 400px;
+    }
+    .search-box{
+        width: 500px !important
+    }
+    .search-item{
+        
+    }
+    .searched-item{
+        height: 50px;
     }
 }
 </style>
