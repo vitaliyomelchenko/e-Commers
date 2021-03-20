@@ -10,9 +10,13 @@
             <h3>Price: {{$price}} грн</h3>
             <h4>Category: {{$category}}</h4>
             <h5>Description: {{$description}}</h5>
-            <div style="margin-top: 50px;">
-                <button class="btn btn-light" type="submit">Add to Cart</button>
-            </div>
+            <form action="{{ route('addToCart') }}" method="POST">
+                @csrf
+                    <input type="hidden" name="product_id" value="{{ $id }}">
+                <div style="margin-top: 50px;">
+                    <button class="btn btn-primary" type="submit">Add to Cart</button>
+                </div>
+            </form>
             <div style="margin-top: 10px;">
                 <button class="btn btn-light" type="submit">Buy Now</button>
             </div>

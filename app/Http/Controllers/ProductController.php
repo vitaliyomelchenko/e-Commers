@@ -26,4 +26,16 @@ class ProductController extends Controller
         $products = Product::where('name', 'like', '%'.$request->search.'%')->get();
         return view('search', ['products'=>$products]);
     }
+
+    public function addToCart(Request $request)
+    {
+        if($request->session()->has('user'))
+        {
+            return "The Cart View";
+        }
+        else
+        {
+            return redirect()->route('login');
+        }
+    }
 }

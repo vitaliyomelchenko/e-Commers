@@ -20,3 +20,4 @@ Route::match(['get', 'post'], '/login', [UserController::class, 'login'])->name(
 Route::get('/',[ProductController::class, 'index'])->name('product');
 Route::get('/detail/{id}', [ProductController::class, 'detail'])->name('detail');
 Route::get('/search', [ProductController::class, 'search'])->name('search');
+Route::post('/addToCart',[ProductController::class, 'addToCart'])->name('addToCart');
