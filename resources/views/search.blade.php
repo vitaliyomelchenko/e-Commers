@@ -10,12 +10,12 @@
         <div class="trading-wrapper">
         <h6>Searched products</h6>
         @foreach ($products as $value)
-            <div class="search-item">
+            <div class="">
                 <a href="detail/{{ $value->id }}">
                 <img class="searched-item" src="{{asset('/img/')."/".$value->gallery}}" class="d-block w-100" alt="{{$value->name}}">
                 <h6>{{$value->name}}</h6>
+                </a>
                 <p>{{ $value->description }}</p>
-            </a>
             </div>
         @endforeach
     </div>

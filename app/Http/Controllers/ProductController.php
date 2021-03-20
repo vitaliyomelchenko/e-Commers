@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Cart;
+use App\Models\Order;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -79,5 +80,35 @@ class ProductController extends Controller
     {
         Cart::destroy($id);
         return redirect()->route('cartList');
+    }
+
+    public function orderNow()
+    {
+        $user_id = Session('user')->id;
+        $totalPrice = DB::table('carts')
+        ->join('products', 'carts.product_id', 'products.id')
+        ->where('carts.user_id', $user_id)
+        ->sum('products.price');
+
+        return view('orderNow', ['totalPrice'=>$totalPrice]);
+    }
+
+    public function orderPlays(Request $request)
+    {
+        $user_id = Session('user')->id;
+        $carts = Cart::where('user_id', $user_id)->get();
+        foreach($carts as $cart)
+        {
+            $order = new Order();
+            $order->product_id = $cart->product_id;
+            $order->user_id = $cart->user_id;
+            $order->status = 'pending';
+            $order->payment_method = $request->payment;
+            $order->payment_status = 'pending';
+            $order->address = $request->address;
+            $order->save();
+            Cart::where('user_id', $user_id)->delete();
+        }
+        return redirect('/');
     }
 }

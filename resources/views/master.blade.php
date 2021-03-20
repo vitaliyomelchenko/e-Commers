@@ -42,9 +42,6 @@
     .search-box{
         width: 500px !important
     }
-    .search-item{
-        
-    }
     .searched-item{
         height: 50px;
     }
@@ -59,6 +56,12 @@
     .fix-footer {
     position:fixed;
     bottom:20px;
+    }
+    .order_now{
+        margin-top: 20px;
+    }
+    .order{
+        margin-top: 50px;
     }
 }
 </style>
