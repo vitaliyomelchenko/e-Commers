@@ -43,7 +43,7 @@
         width: 500px !important
     }
     .searched-item{
-        height: 50px;
+        height: 100px;
     }
     .cart-list-devider{
         border-bottom: 1px solid #cccccc;

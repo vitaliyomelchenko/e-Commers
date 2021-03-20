@@ -5,8 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use Session;
 
 class ProductController extends Controller
@@ -114,11 +116,38 @@ class ProductController extends Controller
 
     public function ordersList()
     {
-        $user_id = Session('user')->id;
+        if(Session('user'))
+        {
+            $user_id = Session('user')->id;
+        $user_name = Session('user')->name;
         $data = DB::table('orders')
         ->join('products', 'orders.product_id', 'products.id')
         ->where('orders.user_id', $user_id)
         ->get();
-        return view('ordersList', ['products'=>$data]);
+        return view('ordersList', ['products'=>$data], ['user_name'=> $user_name]);
+        }
+        else
+        {
+            return redirect()->route('login');
+        }
+    }
+
+    public function registration(Request $request)
+    {
+        $data = $request->except('_token');
+        $user = new User();
+
+        if($request->isMethod('post'))
+        {
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->password = Hash::make($request->password);
+            $user->save();
+            return redirect()->route('login');
+        }
+        else
+        {
+            return view('registration');
+        }
     }
 }

@@ -15,7 +15,7 @@ use App\Http\Middleware\CheckLoginMiddleware;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
+Route::match(['get', 'post'], '/registration', [ProductController::class, 'registration'])->name('registration');
 Route::match(['get', 'post'], '/login', [UserController::class, 'login'])->name('login');
 Route::get('/',[ProductController::class, 'index'])->name('product');
 Route::get('/detail/{id}', [ProductController::class, 'detail'])->name('detail');

@@ -29,18 +29,16 @@ if(Session('user'))
         </form>
         <a class="nav-link pull-right" href="{{route('cartList')}}" tabindex="-1">Cart({{$item}})</a>
         @if (Session('user'))
-        <div class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-             {{Session::get('user')->name}}
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <li><a class="dropdown-item" href="{{ route('logout')}}">Log Out</a></li>
-          </ul>
-        </div>
+            <div class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  {{Session::get('user')->name}}
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li><a class="dropdown-item" href="{{ route('logout')}}">Log Out</a></li>
+                </ul>
+            </div>
         @else
-          <a class="nav-link" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-             Log In
-          </a>
+          <a class="nav-link" href="{{ route('registration')}}">Registration</a>
         @endif
         
       </div>
