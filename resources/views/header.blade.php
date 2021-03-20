@@ -19,7 +19,7 @@ if(Session('user'))
             <a class="nav-link active" href="/">Home</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Orders</a>
+            <a class="nav-link" href="{{route('ordersList')}}">Orders</a>
           </li>
         </ul>
         

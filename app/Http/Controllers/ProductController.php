@@ -111,4 +111,14 @@ class ProductController extends Controller
         }
         return redirect('/');
     }
+
+    public function ordersList()
+    {
+        $user_id = Session('user')->id;
+        $data = DB::table('orders')
+        ->join('products', 'orders.product_id', 'products.id')
+        ->where('orders.user_id', $user_id)
+        ->get();
+        return view('ordersList', ['products'=>$data]);
+    }
 }
