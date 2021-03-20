@@ -1,3 +1,8 @@
+<?php
+use App\Http\Controllers\ProductController;
+$item = ProductController::cartItem();
+?>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
     <a class="navbar-brand" href="#">Brand</a>
@@ -13,7 +18,7 @@
             <a class="nav-link" href="#">Orders</a>
           </li>
         </ul>
-        <a class="nav-link pull-right" href="#" tabindex="-1">Cart(0)</a>
+        <a class="nav-link pull-right" href="#" tabindex="-1">Cart({{$item}})</a>
         <form action="{{ route('search')}}" class="d-flex">
           <input class="form-control me-2 search-box" type="search" name="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
