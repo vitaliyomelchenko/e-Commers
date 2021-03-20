@@ -12,7 +12,14 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('product', ['products'=> $products]);
+        if(Session('user'))
+        {
+            return view('product', ['products'=> $products]);
+        }
+        else
+        {
+            return redirect()->route('login');
+        }
     }
 
     public function detail($id)
@@ -48,5 +55,11 @@ class ProductController extends Controller
     {
         $user_id = Session('user')->id;
         return Cart::where('user_id', $user_id)->count();
+    }
+
+    public function logout()
+    {
+        Session::forget('user');
+        return redirect()->route('login');
     }
 }
