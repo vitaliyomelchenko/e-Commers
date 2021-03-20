@@ -50,13 +50,11 @@
     }
     .cart-list-devider{
         border-bottom: 1px solid #cccccc;
-        margin-bottom: 20px;
-        padding-bottom: 20px;
+        margin-bottom: 5px;
+        padding-bottom: 5px;
     }
     .cart-list{
-        margin-bottom: 20px;
-        padding-bottom: 20px;
-        margin-top: 50px;
+        margin-top: 20px;
     }
     .fix-footer {
     position:fixed;

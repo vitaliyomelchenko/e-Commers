@@ -24,3 +24,4 @@ Route::post('/addToCart',[ProductController::class, 'addToCart'])->name('addToCa
 Route::get('/items', [ProductController::class, 'cartItem'])->name('items');
 Route::get('/logout', [ProductController::class, 'logout'])->name('logout');
 Route::get('/cartList', [ProductController::class, 'cartList'])->name('cartList');
+Route::get('/removeCart/{id}', [ProductController::class, 'removeCart'])->name('removeCart');

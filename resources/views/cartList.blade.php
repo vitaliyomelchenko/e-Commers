@@ -18,7 +18,9 @@
         <div class="col-sm-4">
             <div class="trading-wrapper">
                     <div class="cart-list">
-                        <button class="btn btn-warning">Remove</button>
+                        <a href="{{route('removeCart', $value->cart_id)}}">
+                            <button class="btn btn-warning">Remove</button>
+                        </a>
                     </div>
             </div>
         </div>
