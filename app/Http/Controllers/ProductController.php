@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Session;
 
 class ProductController extends Controller
@@ -12,6 +13,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
+        
         if(Session('user'))
         {
             return view('product', ['products'=> $products]);
@@ -61,5 +63,16 @@ class ProductController extends Controller
     {
         Session::forget('user');
         return redirect()->route('login');
+    }
+    public function cartList()
+    {
+        $user_id = Session('user')->id;
+
+        $data = DB::table('carts')
+        ->join('products', 'products.id', 'carts.product_id')
+        ->where('carts.user_id', $user_id)
+        ->select()
+        ->get();
+        return view('cartList', ['products'=>$data]);
     }
 }

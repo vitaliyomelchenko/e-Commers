@@ -21,7 +21,7 @@
         padding-top: 100px;
     }
     img.slider-img{
-        height: 300px !important;
+        height: 400px !important;
     }
     .custom-product{
         height: 630px;
@@ -47,6 +47,20 @@
     }
     .searched-item{
         height: 50px;
+    }
+    .cart-list-devider{
+        border-bottom: 1px solid #cccccc;
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+    }
+    .cart-list{
+        margin-bottom: 20px;
+        padding-bottom: 20px;
+        margin-top: 50px;
+    }
+    .fix-footer {
+    position:fixed;
+    bottom:20px;
     }
 }
 </style>

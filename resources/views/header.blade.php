@@ -27,7 +27,7 @@ if(Session('user'))
           <input class="form-control me-2 search-box" type="search" name="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
-        <a class="nav-link pull-right" href="#" tabindex="-1">Cart({{$item}})</a>
+        <a class="nav-link pull-right" href="{{route('cartList')}}" tabindex="-1">Cart({{$item}})</a>
         @if (Session('user'))
         <div class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
